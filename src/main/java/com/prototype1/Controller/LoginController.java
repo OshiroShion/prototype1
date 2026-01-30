@@ -1,4 +1,4 @@
-package com.prototype1;
+package com.prototype1.Controller;
 
 import com.prototype1.common.SecuritySession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,7 @@ public class LoginController {
     SecuritySession securitySession;
 
     @GetMapping("/")
-    public String login(){
+    public String login() {
         return "login";
     }
-
-    @GetMapping("/index")
-    public String index(Model model){
-        model.addAttribute("username", securitySession.getUsername());
-        return "index";
-    }
-    //this is branch of "dev"
 }

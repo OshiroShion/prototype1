@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .formLogin(login -> login // フォーム認証を使う
                         .loginPage("/") // ログインページの設定
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/index", true)
+                        .defaultSuccessUrl("/toReservationSearch", true)
                         .usernameParameter("userid")
                         .passwordParameter("password")
                         .permitAll())
@@ -41,11 +41,33 @@ public class SecurityConfig {
 
                 // リクエストの許可設定
                 .authorizeHttpRequests(authz -> authz
-                        // index.html の参照権限
                         .requestMatchers("/")
                         .permitAll()
-                        // index.html の参照権限
-                        .requestMatchers("/index")
+                        .requestMatchers("/toReservationSearch")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toVacancySearch")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toReservationRegister")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toReservationUpdate")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toUserSearch")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toUserRegister")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toUserUpdate")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomSearch")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomRegister")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomUpdate")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomTypeSearch")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomTypeRegister")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/toRoomTypeUpdate")
                         .hasAnyRole("USER","ADMIN")
 
                 );

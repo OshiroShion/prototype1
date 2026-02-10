@@ -17,15 +17,18 @@ import java.time.OffsetDateTime;
 public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String userid;
+    private int userId;
 
-    @Column(nullable = true)
-    private String username;
+    @Column(nullable = false)
+    private String userName;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
+    private String position;
+
+    @Column(nullable = false)
     private String role;
 
     @Column(nullable = false, updatable = false)

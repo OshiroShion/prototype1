@@ -18,10 +18,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     UserInfoRepository userInfoRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
-        List<UserInfo> UserInfoL = userInfoRepository.findByUserid(userid);
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        List<UserInfo> UserInfoL = userInfoRepository.findByUserId(userId);
         if(UserInfoL.isEmpty()){
-            throw new UsernameNotFoundException("User not found for username : " + userid);
+            throw new UsernameNotFoundException("User not found for userId : " + userId);
         }
         return new CustomUserDetails(UserInfoL.getFirst());
     }

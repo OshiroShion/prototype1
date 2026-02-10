@@ -26,7 +26,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userInfo.getUsername();
+        return userInfo.getUserName();
     }
 
     // ユーザーパスワードを返す

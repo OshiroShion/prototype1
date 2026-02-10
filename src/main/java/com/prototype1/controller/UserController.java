@@ -1,4 +1,4 @@
-package com.prototype1.Controller;
+package com.prototype1.controller;
 
 import com.prototype1.common.SecuritySession;
 import org.springframework.beans.factory.annotation.Autowired;

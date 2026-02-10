@@ -104,49 +104,53 @@
 <div class="border bg-light rounded mx-auto my-5 py-4 px-5"
      style =   "width:400px;">
     <h3>reservation register</h3>
-    <form id="registerForm">
-        <div class="form-group">
-            <input type="hidden" name="roomId" id="roomId">
-            <div id="register-form">
-                <label>room id</label>
-                <div class="input-group mb-1">
-                    <input type="text" class="form-control room-id-form me-1" required>
-                    <button class="btn btn-outline-danger remove-button" type="button">-</button>
-                </div>
+    <div class="form-group">
+        <input type="hidden" name="roomId" id="roomId">
+        <div id="register-form">
+            <label>room id</label>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control room-id-form me-1" required>
+                <button class="btn btn-outline-danger remove-button" type="button">-</button>
             </div>
-            <button class="btn btn-outline-secondary col-2 offset-10 mt-2" id="add-button" type="button">+</button>
-
-            <label>guest name</label>
-            <input type="text" name="guestName" class="form-control mb-1" required>
-
-            <label>guest phone number</label>
-            <input type="text" name="guestphoneNumber" class="form-control mb-1" required>
-
-            <label>guest email address</label>
-            <input type="email" name="guestEmail" class="form-control mb-1" required>
-
-            <label>adult count</label>
-            <input type="number" name="adultCount" class="form-control mb-1" required>
-
-            <label>child count</label>
-            <input type="number" name="childCount" class="form-control mb-1" required>
-
-            <label>check-in date</label>
-            <input type="date" name="checkInDate" class="form-control mb-1" required>
-
-            <label>check-out date</label>
-            <input type="date" name="checkOutDate" class="form-control mb-1" required>
         </div>
-        <div class="mt-3">
-            <button type="submit" class="col-5 btn btn-outline-primary btn-block offset-7">register</button>
-        </div>
-    </form>
+        <button class="btn btn-outline-secondary col-2 offset-10 mt-2" id="add-button" type="button">+</button>
+
+        <label>guest name</label>
+        <input type="text" id="guestName" class="form-control mb-1" required>
+
+        <label>guest phone number</label>
+        <input type="text" id="guestPhone" class="form-control mb-1" required>
+
+        <label>guest email address</label>
+        <input type="email" id="guestEmail" class="form-control mb-1" required>
+
+        <label>adult count</label>
+        <input type="number" id="adultCount" class="form-control mb-1" required>
+
+        <label>child count</label>
+        <input type="number" id="childCount" class="form-control mb-1" required>
+
+        <label>check-in date</label>
+        <input type="date" id="checkInDate" class="form-control mb-1" required>
+
+        <label>check-out date</label>
+        <input type="date" id="checkOutDate" class="form-control mb-1" required>
+    </div>
+    <div class="mt-3">
+        <button id="submit" class="col-5 btn btn-outline-primary btn-block offset-7">register</button>
+    </div>
+    <input type="hidden" id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 </div>
-<!-- bootstrap -->
+
+<!-- bootstrap javascript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<!-- javascript -->
-<script src="./javascript/reservationRegister.js"></script>
+<!-- javascript-->
+<script th:src="@{/js/utils.js}"></script>
+<script th:src="@{/js/reservationRegister.js}"></script>
+<!-- javascript
+<script src="../static/js/reservationRegister.js"></script>-->
+
 </body>
 </html>

@@ -41,7 +41,7 @@ public class SecurityConfig {
 
                 // リクエストの許可設定
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/")
+                        .requestMatchers("/", "/css/**", "/js/**", "/favicon")
                         .permitAll()
                         .requestMatchers("/toReservationSearch")
                         .hasAnyRole("USER","ADMIN")
@@ -68,6 +68,11 @@ public class SecurityConfig {
                         .requestMatchers("/toRoomTypeRegister")
                         .hasAnyRole("USER","ADMIN")
                         .requestMatchers("/toRoomTypeUpdate")
+                        .hasAnyRole("USER","ADMIN")
+
+                        .requestMatchers("/reservationRegister")
+                        .hasAnyRole("USER","ADMIN")
+                        .requestMatchers("/userRegister")
                         .hasAnyRole("USER","ADMIN")
 
                 );

@@ -6,8 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
-    List<UserInfo> findByUserid(String userid);
-    List<UserInfo> findByUsername(String username);
+    List<UserInfo> findByUserId(String userid);
+    List<UserInfo> findByUserName(String userName);
     @Transactional
-    List<UserInfo> deleteByUsername(String username);
+    List<UserInfo> deleteByUserName(String userName);
 }
